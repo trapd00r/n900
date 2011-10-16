@@ -1,0 +1,4 @@
+#!/bin/sh
+# get cellular signal strength. First line is percentage, second dBm.
+dbus-send --system --print-reply \
+  --dest=com.nokia.phone.net /com/nokia/phone/net Phone.Net.get_signal_strength
