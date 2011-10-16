@@ -1,0 +1,5 @@
+#!/bin/sh
+
+dbus-send --system \
+  --dest=com.nokia.icd /com/nokia/icd_ui com.nokia.icd_ui.disconnect boolean:true \
+  | echo -n ""
