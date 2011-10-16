@@ -1,0 +1,4 @@
+#!/bin/sh
+dbus-send \
+  --system --dest=com.nokia.csd.Info --type=method_call \
+  --print-reply /com/nokia/csd/info com.nokia.csd.Info.GetIMEINumber
