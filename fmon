@@ -1,0 +1,3 @@
+#!/bin/sh
+# turn the fm transmitter ON
+/usr/bin/fmtx_client -p 1

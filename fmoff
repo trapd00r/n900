@@ -1,0 +1,3 @@
+#!/bin/sh
+# turn the fm transmitter OFF
+/usr/bin/fmtx_client -p 0
