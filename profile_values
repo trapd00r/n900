@@ -1,0 +1,4 @@
+#!/bin/sh
+# general or silent
+dbus-send --type=method_call --print-reply \
+  --dest=com.nokia.profiled /com/nokia/profiled com.nokia.profiled.get_values string:"general"
