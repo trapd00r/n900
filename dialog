@@ -1,0 +1,4 @@
+#!/bin/sh
+# this dialog requires user interaction
+dbus-send --type=method_call \
+  --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.SystemNoteDialog string:"$@" uint32:0 string:"OK"
