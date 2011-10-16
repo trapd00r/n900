@@ -1,0 +1,6 @@
+#!/bin/sh
+
+dbus-send \
+  --system --type=method_call \
+  --dest=com.nokia.mce /com/nokia/mce/request com.nokia.mce.request.req_tklock_mode_change string:"locked" \
+  | echo ""
