@@ -1,0 +1,5 @@
+#!/bin/sh
+# set general profile
+
+dbus-send --type=method_call \
+  --dest=com.nokia.profiled /com/nokia/profiled com.nokia.profiled.set_profile string:"general"
