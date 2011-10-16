@@ -1,0 +1,3 @@
+#!/bin/sh
+dbus-send --system --print-reply \
+  --dest=com.nokia.mce /com/nokia/mce/request com.nokia.mce.request.req_vibrator_pattern_deactivate string:PatternIncomingCall
