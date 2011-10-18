@@ -1,0 +1,20 @@
+#!/usr/bin/python
+# take a fullscreen screenshot
+
+import gtk.gdk
+import time
+
+win  = gtk.gdk.get_default_root_window()
+size = win.get_size()
+
+print "The size of the window is %dx%d" % size
+
+pb = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, size[0], size[1])
+pb = pb.get_from_drawable(win, win.get_colormap(), 0, 0, 0, 0, size[0], size[1])
+
+if(pb != None):
+  fname = "screenshot_%d.png" % time.time()
+  pb.save(fname, 'png')
+  print "Screenshot saved as %s" % fname
+else:
+  print "Unable to get the screenshot."
