@@ -1,0 +1,11 @@
+#!/bin/sh
+# take a photo using the back camera
+/usr/bin/gst-launch                        \
+  v4l2camsrc                               \
+  device=/dev/video0                       \
+  num-buffers=1 !                          \
+  video/x-raw-yuv,width=2592,height=1968 ! \
+  ffmpegcolorspace !                       \
+  jpegenc !                                \
+  filesink                                 \
+  location="/home/user/photo_$(date +%Y-%m-%d-%s).jpg"
