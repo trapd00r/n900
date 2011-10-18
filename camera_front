@@ -1,0 +1,8 @@
+#!/bin/sh
+# take a photo using the front camera
+/usr/bin/gst-launch v4l2src \
+  device=/dev/video1        \
+  num-buffers=1 !           \
+  ffmpegcolorspace !        \
+  jpegenc !                 \
+  filesink location="/tmp/front-camera-$(date +%Y-%m-%d-%s).jpg"
