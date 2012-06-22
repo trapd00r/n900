@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+# set a random wallpaper on each of the 9 desktops in maemo 5.
+use strict;
+use warnings;
+use List::Util qw(shuffle);
+
+my @walls = shuffle(glob("$ENV{HOME}/MyDocs/wallpapers/*"));
+for my $i(1..9) {
+  system("gcp -v $walls[$i] $ENV{HOME}/.backgrounds/background-$i.png");
+
+}
+##!/bin/sh
+#
+##Failing that you can drop your backgrounds into /home/user/.backgrounds
+##and rename them to background-X.png where X = the background number.
+#
+##declare -a walls
+#
+#walls=(${HOME}/MyDocs/wallpapers/*)
+#
+#for desk in `seq 1 $( \
+#  gconftool -R /apps/osso/hildon-desktop/views \
+#    | awk 'BEGIN { FS="]"; } /[0-9][]]$/ { FS=","; print NF}' \
+#)`; do
+#  echo $walls[$desk}]
+#done
+#
+#
+##for i in $( \
+##  gconftool -R /apps/osso/hildon-desktop/views \
+##    | perl -lne '/active = \[(\d).+,(\d)\]/ and print "{$1 .. $2}"' \
+##); do echo $i; done
+##
+###gconftool -s /apps/osso/hildon-desktop/views/5/bg-image -t string /home/user/MyDocs/wallpapers/
