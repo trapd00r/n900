@@ -1,8 +1,14 @@
 #!/bin/sh
 # take a photo using the front camera
+  dir="/home/user/DCIMfront"
+fname="front-camera-$(date +%Y-%m-%d-%s).jpg"
+mkdir -p $dir
 /usr/bin/gst-launch v4l2src \
   device=/dev/video1        \
   num-buffers=1 !           \
   ffmpegcolorspace !        \
   jpegenc !                 \
-  filesink location="/tmp/front-camera-$(date +%Y-%m-%d-%s).jpg"
+  filesink location="$dir/$fname" &&
+  feh -FZ "$dir/$fname" &&
+  ls $dir
+
